@@ -14,6 +14,12 @@ export default function bindRoutes(app) {
   // create new game
   app.get('/new-game', GamesController.create);
 
+  // send card request to backend
+  app.post('/card-request', GamesController.request);
+
+  // refresh player's screen
+  app.post('/refresh', GamesController.refresh);
+
   // special JS page. Include the webpack index.html file
   app.get('/home', (request, response) => {
     response.sendFile(resolve('dist', 'main.html'));
