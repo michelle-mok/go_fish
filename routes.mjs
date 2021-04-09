@@ -8,6 +8,9 @@ export default function bindRoutes(app) {
   const GamesController = initGamesController(db);
   const UsersController = initUsersController(db);
 
+  // display current game if user is already logged in
+  app.get('/already-logged-in', UsersController.alreadyLoggedIn);
+
   // get user details on login
   app.post('/login', UsersController.login);
 
